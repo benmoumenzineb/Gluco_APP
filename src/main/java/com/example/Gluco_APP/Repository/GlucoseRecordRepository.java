@@ -3,9 +3,13 @@ import com.example.Gluco_APP.Model.GlucoseRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface GlucoseRecordRepository extends JpaRepository<GlucoseRecord, Long> {
     // Correction du nom de la propriété pour éviter l'erreur
     GlucoseRecord findFirstByPatientIdOrderByRecordedDateDesc(Long glucoseLevel);
+
+    List<GlucoseRecord> findAllByPatientIdOrderByRecordedDateDesc(Long patientId) ;
 }
 

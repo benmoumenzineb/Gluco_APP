@@ -51,5 +51,7 @@ public class Patient extends Userr { // Classe qui étend `Userr`
     public void setIdPatient(String idPatient) { // Correction du nom de la méthode
         this.idPatient = idPatient;
     }
+
+
 }
 
