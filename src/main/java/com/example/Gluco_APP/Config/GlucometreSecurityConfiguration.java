@@ -17,7 +17,6 @@ public class GlucometreSecurityConfiguration {
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers("/api/glucose/**").permitAll();
                     auth.requestMatchers("/api/current/**").permitAll();
-                    auth.requestMatchers("/api/glucose/current/**").permitAll();
                     // Autres configurations de sécurité...
                 });
 
@@ -30,7 +29,7 @@ public class GlucometreSecurityConfiguration {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 // Adapter selon les besoins réels de l'origine
-                registry.addMapping("/api/**").allowedOrigins("http://192.168.2.21:8080/api/glucose/current?patientId=1");
+                registry.addMapping("/api/**").allowedOrigins("http://localhost:8088", "http://192.168.223.72:8080");
             }
         };
     }
