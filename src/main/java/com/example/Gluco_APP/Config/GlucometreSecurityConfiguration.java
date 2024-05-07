@@ -17,6 +17,7 @@ public class GlucometreSecurityConfiguration {
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers("/api/glucose/**").permitAll();
                     auth.requestMatchers("/api/current/**").permitAll();
+                    auth.requestMatchers("/api/history/**").permitAll();
                     // Autres configurations de sécurité...
                 });
 

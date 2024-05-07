@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -32,11 +33,12 @@ public class DataController {
 
     // Point de terminaison pour obtenir des données de glucose actuelles via GET
     @GetMapping("/current")
-    public ResponseEntity<Map<String, Object>> getCurrentGlucoseData() {
-        // Obtenir les données de glucose actuelles depuis le service
-        Map<String, Object> glucoseData = dataService.getCurrentGlucoseData();
-        return ResponseEntity.ok(glucoseData);
+    public ResponseEntity<List<Map<String, Object>>> getCurrentGlucoseData() {
+        // Obtenir une liste de données de glucose actuelles depuis le service
+        List<Map<String, Object>> glucoseDataList = dataService.getCurrentGlucoseDataList();
+        return ResponseEntity.ok(glucoseDataList);
     }
+
 
     // Point de terminaison pour enregistrer des données de glucose via POST
 
